@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="user" class="com.virgonia.spring5.ioc.User"></bean>
+
+<!--    <bean id="orders" class="com.virgonia.spring5.ioc.Orders" init-method="initMethod" destroy-method="destroyMethod">
+        <property name="oname" value="set"></property>
+    </bean>-->
+<!--    <bean id="myBeanPost" class="com.virgonia.spring5.ioc.MyBeanPost"></bean>-->
+    <bean id="usermul" class="com.virgonia.spring5.ioc.User" scope="prototype"></bean>
+
+
+    <!--   &lt;!&ndash;******set方法的属性注入&ndash;&gt;
+        <bean id="book" class="com.virgonia.spring5.bean.Book">
+            <property name="bName" >
+                <value>男子汉</value>
+            </property>
+            <property name="bId" value="143452"></property>
+            <property name="bPrice" value="32.4"></property>
+        </bean>
+        -->
+
+
+<!--    ************constructor注入
+    <bean id="abook" class="com.virgonia.spring5.bean.Book">
+        <constructor-arg name="bName" value="厚黑学"/>
+        <constructor-arg name="bId" value="78432"/>
+        <constructor-arg name="bPrice" value="12.4"/>
+    </bean>
+-->
+<!--
+    ***********p名称空间
+    <bean id="book" class="com.virgonia.spring5.bean.Book" p:bName="狼图腾" p:bId="124789" p:bPrice="30.1"></bean>
+-->
+<!--
+    ******外部bean的ref注入
+    <bean id="library" class="com.virgonia.spring5.bean.Library">
+        <property name="book" ref="book"></property>
+    </bean>
+     <bean id="book" class="com.virgonia.spring5.bean.Book">
+                <property name="bName" >
+                    <value>男子汉</value>
+                </property>
+                <property name="bId" value="143452"></property>
+                <property name="bPrice" value="32.4"></property>
+     </bean>
+-->
+<!--
+    <bean id="library" class="com.virgonia.spring5.bean.Library">
+        <property name="book">
+            <bean id="book" class="com.virgonia.spring5.bean.Book">
+                <property name="bName" >
+                    <value>男子汉</value>
+                </property>
+                <property name="bId" value="143452"></property>
+                <property name="bPrice" value="32.4"></property>
+            </bean>
+        </property>
+    </bean>
+    -->
+
+    <bean id="library" class="com.virgonia.spring5.bean.Library">
+        <property name="book" ref="book"></property>
+        <property name="book.bName" value="杀死比尔"></property>
+        <property name="book.bId" value="455346134"></property>
+        <property name="book.bPrice" value="77.7"></property>
+    </bean>
+    <bean id="course" class="com.virgonia.spring5.bean.Course" autowire="byName">
+        <!--<property name="cName" value="course"></property>-->
+    </bean>
+    <bean id="book" class="com.virgonia.spring5.bean.Book"></bean>
+
+
+
+
+
+</beans>

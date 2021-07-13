@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+
+    <bean id="course1" class="com.virgonia.spring5.bean.Course">
+        <property name="cName" value="数据结构"></property>
+    </bean>
+    <bean id="course2" class="com.virgonia.spring5.bean.Course">
+        <property name="cName" value="计算机网络"></property>
+    </bean>
+    <bean id="stu" class="com.virgonia.spring5.bean.Stu">
+        <property name="classes">
+            <list>
+                <ref bean="course1"></ref>
+                <ref bean="course2"></ref>
+            </list>
+<!--            <array>
+                <value>计算机组成原理</value>
+                <value>操作系统</value>
+            </array>-->
+        </property>
+<!--        <property name="list">
+            <list>
+                <value>通信原理</value>
+                <value>模拟电子电路</value>
+            </list>
+        </property>-->
+        <property name="list" ref="bookList"></property>
+        <property name="maps">
+            <map>
+                <entry key="高数" value="坏雄哥"></entry>
+                <entry key="概率论" value="王顺福"></entry>
+                <entry key="线性代数" value="王维"></entry>
+            </map>
+        </property>
+        <property name="sets">
+            <set>
+                <value>洋芋</value>
+                <value>土豆</value>
+            </set>
+        </property>
+    </bean>
+    <util:list id="bookList">
+        <value>失乐园</value>
+        <value>国富论</value>
+        <value>娱乐至死</value>
+    </util:list>
+</beans>

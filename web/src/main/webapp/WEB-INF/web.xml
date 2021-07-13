@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    
+    
+    <!-- servlet标签给tomcat配置servlet程序 -->
+    <servlet>
+        <!-- 给servlet程序起别名 一般是类名 -->
+        <servlet-name>HiServlet</servlet-name>
+        <!-- 是servlet的全类名 -->
+        <servlet-class>com.virgonia.web.HiServlet</servlet-class>
+        <init-param>
+            <param-name>hiservlet</param-name>
+            <param-value>config</param-value>
+        </init-param>
+    </servlet>
+    <!-- 给servlet程序配置访问地址 -->
+    <servlet-mapping>
+        <!-- 告诉服务器 当前配置的地址是给哪个servlet程序使用 -->
+        <servlet-name>HiServlet</servlet-name>
+        <!-- 配置访问地址
+        / 表示了当前工程路径 即 http://ip/port/工程/
+        /hello就表示http://ip/port/工程/hello
+        地址可以自定义 主要是让服务器联系到地址 并匹配到一个servlet响应请求并回应
+        -->
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>HttpServlet1</servlet-name>
+        <servlet-class>com.virgonia.web.HttpServlet1</servlet-class>
+        <init-param>
+            <param-name>class</param-name>
+            <param-value>chinese</param-value>
+        </init-param>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>HttpServlet1</servlet-name>
+        <url-pattern>/httpServlet1</url-pattern>
+    </servlet-mapping>
+    
+</web-app>
